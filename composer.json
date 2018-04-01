@@ -47,7 +47,7 @@
     },
     "conflict": {
         "symfony/symfony": "*"
-    }
+    },
     "extra": {
         "symfony": {
             "allow-contrib": true
