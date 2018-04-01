@@ -5,3 +5,7 @@ easy_admin:
             class: App\Entity\Author
         BlogPost:
             class: App\Entity\BlogPost
+            form:
+                fields:
+                    # ...
+                    - { property: 'body', type: 'ckeditor' }
