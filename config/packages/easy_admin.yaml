@@ -7,5 +7,8 @@ easy_admin:
             class: App\Entity\BlogPost
             form:
                 fields:
-                    # ...
+                    - 'title'
+                    - 'slug'
+                    - 'description'
                     - { property: 'body', type: 'ckeditor' }
+                    - 'author'
