@@ -63,6 +63,8 @@ after_script:
 - ls --recursive --color config
 - $GOPATH/bin/ccat config/packages/doctrine.yaml
 - $GOPATH/bin/ccat config/packages/easy_admin.yaml
+- $GOPATH/bin/ccat config/packages/ivory_ck_editor.yaml
+- $GOPATH/bin/ccat config/routes/easy_admin.yaml
 
 - composer console -- debug:router
 - composer console -- server:start &
