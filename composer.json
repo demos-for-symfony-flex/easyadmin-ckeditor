@@ -33,7 +33,8 @@
         "initialize": [
             "console doctrine:database:create",
             "console doctrine:migrations:diff --quiet",
-            "console doctrine:migrations:migrate --no-interaction --quiet"
+            "console doctrine:migrations:migrate --no-interaction --quiet",
+            "console ckeditor:install"
         ],
         "security:check": [
             "security-checker security:check"
