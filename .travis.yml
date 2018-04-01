@@ -1,0 +1,103 @@
+---
+language: php
+
+addons:
+  apt:
+    packages:
+    - elinks # For dysplaying php files on console.
+
+cache:
+  directories:
+  - $HOME/.composer/cache/files
+
+php:
+- nightly
+- 7.2
+- 7.1
+- 7.0
+
+# env:
+  # global:
+  # - PATH=$TRAVIS_BUILD_DIR/bin::$PATH
+
+matrix:
+  fast_finish: true
+  allow_failures:
+  - php: nightly
+
+before_install:
+- go get -u github.com/jingweno/ccat
+# Disabling Xdebug - Debugger and Profiler Tool for PHP
+- php -r "print_r(get_loaded_extensions(TRUE));";
+  if [ -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
+    cat ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini;
+    install --directory ~/.phpenv/versions/$(phpenv version-name)/etc/on-demand;
+    mv ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ~/.phpenv/versions/$(phpenv version-name)/etc/on-demand;
+    php -r "print_r(get_loaded_extensions(TRUE));";
+  fi
+
+install:
+- composer install
+- composer initialize # -- --ansi
+
+script:
+- composer require --no-scripts sensiolabs/security-checker &> /dev/null && composer security:check -- --end-point=http://security.sensiolabs.org/check_lock --ansi
+
+after_script:
+- ls --almost-all --color
+- cat .env
+- cat .env.dist
+- ls --color bin
+- ls --almost-all --recursive --color var
+- ls --color src
+- ls --color src/Controller
+- ls --color src/Entity
+- php -s src/Entity/Author.php | elinks -force-html -dump-color-mode 4 -dump
+- php -s src/Entity/BlogPost.php | elinks -force-html -dump-color-mode 4 -dump
+- ls --color src/Repository
+- php -s src/Repository/AuthorRepository.php | elinks -force-html -dump-color-mode 4 -dump
+- php -s src/Repository/BlogPostRepository.php | elinks -force-html -dump-color-mode 4 -dump
+- composer console -- doctrine:query:sql "INSERT INTO author (name) VALUES ('Tom B. Erichsen')"
+- composer console -- doctrine:query:dql "SELECT a FROM App\Entity\Author a"
+- composer console -- doctrine:query:sql "SELECT * FROM author"
+- ls --recursive --color config
+- $GOPATH/bin/ccat config/packages/doctrine.yaml
+- $GOPATH/bin/ccat config/packages/easy_admin.yaml
+
+- composer console -- debug:router
+- composer console -- server:start &
+- printf 'HEAD /admin/dashboard HTTP/1.1\r\n\r\n' | socat - TCP4:localhost:8000,forever >/dev/null # Waiting for server to connect.
+- elinks http://localhost:8000/admin -dump-color-mode 4 -dump
+# - elinks http://localhost:8000/index.php/admin -dump-color-mode 4 -dump
+
+
+- composer show --latest
+- $GOPATH/bin/ccat composer.json
+
+- composer console -- --ansi
+
+- composer console -- list debug --ansi
+- composer console -- help debug:router --ansi
+
+- composer console -- list doctrine --ansi
+- composer console -- help doctrine:database:create --ansi
+# - composer console -- help doctrine:generate:entities --ansi
+- composer console -- help doctrine:mapping:convert --ansi
+- composer console -- help doctrine:mapping:import --ansi
+- composer console -- help doctrine:mapping:info --ansi
+- composer console -- help doctrine:migrations:diff --ansi
+- composer console -- help doctrine:migrations:migrate --ansi
+- composer console -- help doctrine:query:dql --ansi
+- composer console -- help doctrine:query:sql --ansi
+- composer console -- help doctrine:schema:validate --ansi
+
+- composer console -- list make --ansi
+- composer console -- help make:crud --ansi
+- composer console -- help make:entity --ansi
+- composer console -- help make:migration --ansi
+
+- composer console -- list router --ansi
+- composer console -- help router:match --ansi
+
+- composer console -- list server --ansi
+- composer console -- help server:start --ansi
