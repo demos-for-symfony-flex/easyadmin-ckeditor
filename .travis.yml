@@ -42,6 +42,7 @@ install:
 - |
   composer install
   composer require symfony/flex
+  composer require symfony/dotenv --dev
   composer require friendsofsymfony/ckeditor-bundle
   composer require easycorp/easyadmin-bundle
   composer initialize # -- --ansi
@@ -81,6 +82,8 @@ after_script:
 
 - composer show --latest
 - $GOPATH/bin/ccat composer.json
+- $GOPATH/bin/ccat composer-dev.json
+- diff composer-dev.json composer.json
 
 - composer console -- --ansi
 
