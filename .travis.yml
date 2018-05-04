@@ -87,7 +87,8 @@ after_script:
 - $GOPATH/bin/ccat composer.json
 - $GOPATH/bin/ccat composer-dev.json
 - diff --help
-- diff --minimal --side-by-side --color composer-dev.json composer.json
+# - diff --minimal --side-by-side --color composer-dev.json composer.json needs a Ubuntu version newer than Trusty
+- colordiff --minimal --side-by-side composer-dev.json composer.json
 
 - composer console -- --ansi
 
