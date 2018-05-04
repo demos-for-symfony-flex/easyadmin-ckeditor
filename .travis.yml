@@ -51,7 +51,7 @@ install:
   composer initialize # -- --ansi
 
 script:
-- composer require --no-scripts sensiolabs/security-checker &> /dev/null && composer security:check -- --end-point=http://security.sensiolabs.org/check_lock --ansi
+- composer require --no-scripts sensiolabs/security-checker &> /dev/null && composer security:check composer-dev.lock -- --end-point=http://security.sensiolabs.org/check_lock --ansi
 
 after_script:
 - ls --almost-all --color
@@ -86,7 +86,7 @@ after_script:
 - composer show --latest
 - $GOPATH/bin/ccat composer.json
 - $GOPATH/bin/ccat composer-dev.json
-- diff composer-dev.json composer.json
+- diff --color composer-dev.json composer.json
 
 - composer console -- --ansi
 
