@@ -26,6 +26,8 @@
         "bin-dir": "bin"
     },
     "scripts": {
+        "auto-scripts": [
+        ],
         "console": [
             "console"
         ],
