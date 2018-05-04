@@ -34,7 +34,7 @@
             "console doctrine:database:create",
             "console doctrine:migrations:diff --quiet",
             "console doctrine:migrations:migrate --no-interaction --quiet",
-            "console ckeditor:install",
+            "console ckeditor:install --quiet",
             "console assets:install --symlink"
         ],
         "security:check": [
