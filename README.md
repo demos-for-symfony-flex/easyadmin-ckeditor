@@ -3,6 +3,9 @@
 [![Build Status](https://travis-ci.org/symfony-flex-demo/easyadmin-ckeditor.svg?branch=master)](https://travis-ci.org/symfony-flex-demo/easyadmin-ckeditor)
 
 ## TODO
+* Check [symfony.sh](https://symfony.sh/) for the appearence of a recipe for `friendsofsymfony/ckeditor-bundle` and if it is contrib or official, if it is contrib, adjust the `composer.json` for `extra": { "symfony": { "allow-contrib": true }}`
+
+## Done
 * CkEditor (`ckeditor-bundle`): `egeloen` -> FriendsOfSymfony
   * [*Finding a new home for IvoryCKEditorBundle*](http://symfony.com/blog/finding-a-new-home-for-ivoryckeditorbundle)
 
