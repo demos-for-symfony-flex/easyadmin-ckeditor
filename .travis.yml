@@ -99,6 +99,9 @@ after_script:
 - composer console -- help make:entity --ansi
 - composer console -- help make:migration --ansi
 
+- composer console -- list ckeditor --ansi
+- composer console -- help ckeditor:install --ansi
+
 - composer console -- list router --ansi
 - composer console -- help router:match --ansi
 
