@@ -39,6 +39,7 @@ before_install:
 
 install:
 - composer install
+- composer require symfony/flex
 - composer initialize # -- --ansi
 
 script:
