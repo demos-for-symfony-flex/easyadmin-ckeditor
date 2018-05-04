@@ -5,6 +5,7 @@ addons:
   apt:
     packages:
     - elinks # For dysplaying php files on console.
+    - colordiff
 
 cache:
   directories:
