@@ -16,8 +16,9 @@ php:
 - 7.1
 - 7.0
 
-# env:
-  # global:
+env:
+  global:
+  - COMPOSER=composer-dev.json
   # - PATH=$TRAVIS_BUILD_DIR/bin::$PATH
 
 matrix:
