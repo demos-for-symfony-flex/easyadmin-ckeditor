@@ -86,6 +86,7 @@ after_script:
 - composer show --latest
 - $GOPATH/bin/ccat composer.json
 - $GOPATH/bin/ccat composer-dev.json
+- diff --help
 - diff --minimal --side-by-side --color composer-dev.json composer.json
 
 - composer console -- --ansi
