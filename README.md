@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/symfony-flex-demo/easyadmin-ckeditor.svg?branch=master)](https://travis-ci.org/symfony-flex-demo/easyadmin-ckeditor)
 
+## TODO
+* CkEditor (`ckeditor-bundle`): `egeloen` -> ̀FriendsOfSymfony
+  * [*Finding a new home for IvoryCKEditorBundle*](http://symfony.com/blog/finding-a-new-home-for-ivoryckeditorbundle)
+
 ## Requirements
 ### ZipArchive (Zip extension)
 * Error thrown while running command "ckeditor:install". Message: "Class 'ZipArchive' not found"
