@@ -23,7 +23,7 @@
         "auto-scripts": [
         ],
         "initialize": {
-            "doctrine:database:create": "symfony-cmd",
+            "doctrine:database:create": "composer console",
             "doctrine:migrations:diff --quiet": "symfony-cmd",
             "doctrine:migrations:migrate --no-interaction --quiet": "symfony-cmd",
             "ckeditor:install --quiet": "symfony-cmd",
