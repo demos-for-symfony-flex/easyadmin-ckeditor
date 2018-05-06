@@ -17,8 +17,9 @@ php:
 - 7.1
 - 7.0
 
-# env:
-  # global:
+env:
+  global:
+  - COMPOSER_BIN_DIR=bin
   # - COMPOSER=composer-dev.json # https://travis-ci.org/symfony-flex-demo/env-COMPOSER-and-symfony.lock
   # - PATH=$TRAVIS_BUILD_DIR/bin::$PATH
 
