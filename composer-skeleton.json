@@ -23,11 +23,11 @@
         "auto-scripts": [
         ],
         "initialize": [
-            "composer console doctrine:database:create",
-            "composer console doctrine:migrations:diff --quiet",
-            "composer console doctrine:migrations:migrate --no-interaction --quiet",
-            "composer console ckeditor:install --quiet",
-            "composer console assets:install --symlink --relative"
+            "composer exec -- console doctrine:database:create",
+            "composer exec -- console doctrine:migrations:diff --quiet",
+            "composer exec -- console doctrine:migrations:migrate --no-interaction --quiet",
+            "composer exec -- console ckeditor:install --quiet",
+            "composer exec -- console assets:install --symlink --relative"
         ],
         "post-install-cmd": [
             "@auto-scripts"
