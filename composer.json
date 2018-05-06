@@ -17,8 +17,6 @@
     },
     "scripts": {
         "auto-scripts": [
-            "cache:clear": "symfony-cmd",
-            "assets:install --symlink --relative
         ],
         "console": [
             "console"
