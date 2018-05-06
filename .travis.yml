@@ -63,11 +63,11 @@ install:
   composer require symfony/profiler-pack --dev
   composer require symfony/web-server-bundle --dev
   composer initialize # -- --ansi
-  # composer console doctrine:database:create
-  # composer console doctrine:migrations:diff --quiet
-  # composer console doctrine:migrations:migrate --no-interaction --quiet
-  # composer console ckeditor:install --quiet
-  # composer console assets:install  --symlink --relative
+  # composer exec -- console doctrine:database:create
+  # composer exec -- console doctrine:migrations:diff --quiet
+  # composer exec -- console doctrine:migrations:migrate --no-interaction --quiet
+  # composer exec -- console ckeditor:install --quiet
+  # composer exec -- console assets:install  --symlink --relative
 
 script:
 - composer require --no-scripts sensiolabs/security-checker &> /dev/null && composer security:check -- --end-point=http://security.sensiolabs.org/check_lock --ansi
@@ -109,6 +109,8 @@ after_script:
 # - diff --minimal --side-by-side --color composer-dev.json composer.json needs a Ubuntu version newer than Trusty
 - colordiff --minimal --side-by-side composer-orig.json composer.json
 
+- composer exec --list --ansi
+- composer run-script --list --ansi
 - composer console -- --ansi
 
 - composer console -- list debug --ansi
