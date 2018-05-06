@@ -34,5 +34,8 @@
     },
     "conflict": {
         "symfony/symfony": "*"
+    },
+    "require": {
+        "ext-iconv": "*",
     }
 }
