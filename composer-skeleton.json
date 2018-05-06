@@ -36,6 +36,6 @@
         "symfony/symfony": "*"
     },
     "require": {
-        "ext-iconv": "*",
+        "ext-iconv": "*"
     }
 }
