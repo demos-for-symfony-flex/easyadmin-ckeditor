@@ -49,9 +49,9 @@ install:
   composer require symfony/flex
   composer require symfony/yaml
   composer require symfony/dotenv --dev
-  composer require symfony/orm-pack
+  composer require symfony/orm-pack easycorp/easyadmin-bundle
   composer require friendsofsymfony/ckeditor-bundle
-  composer require easycorp/easyadmin-bundle
+  # composer require easycorp/easyadmin-bundle
   composer require symfony/profiler-pack --dev
   composer require symfony/web-server-bundle --dev
   # composer initialize # -- --ansi
