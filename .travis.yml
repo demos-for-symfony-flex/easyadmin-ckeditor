@@ -49,7 +49,7 @@ install:
   composer require symfony/flex
   composer require symfony/yaml
   composer require symfony/dotenv --dev
-  composer require easycorp/easyadmin-bundle
+  composer require easycorp/easyadmin-bundle # needed early to use its config unless error for unused config
   composer require symfony/orm-pack
   composer require friendsofsymfony/ckeditor-bundle
   # composer require easycorp/easyadmin-bundle
@@ -60,7 +60,7 @@ install:
   composer console doctrine:migrations:diff --quiet
   composer console doctrine:migrations:migrate --no-interaction --quiet
   composer console ckeditor:install --quiet
-  composer console assets:install --symlink
+  composer console assets:install # --symlink ### Why do I have to remove it?
 
 script:
 - composer require --no-scripts sensiolabs/security-checker &> /dev/null && composer security-checker security:check -- --end-point=http://security.sensiolabs.org/check_lock --ansi
