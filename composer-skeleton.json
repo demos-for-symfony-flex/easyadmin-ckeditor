@@ -10,7 +10,6 @@
     },
     "bin": ["bin/console"],
     "config": {
-        "bin-dir": "bin"
     },
     "scripts": {
         "auto-scripts": [
