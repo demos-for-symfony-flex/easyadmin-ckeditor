@@ -25,9 +25,6 @@
             "ckeditor:install --quiet": "symfony-cmd",
             "assets:install --symlink --relative": "symfony-cmd"
         },
-        "security:check": [
-            "security-checker security:check"
-        ],
         "post-install-cmd": [
             "@auto-scripts"
         ],
