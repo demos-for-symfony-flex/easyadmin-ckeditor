@@ -38,7 +38,6 @@
     "require": {
         "easycorp/easyadmin-bundle": "^1.17",
         "friendsofsymfony/ckeditor-bundle": "^1.0",
-        "sensio/framework-extra-bundle": "^5.1",
         "symfony/console": "^3.4 || ^4.0",
         "symfony/flex": "^1.0",
         "symfony/orm-pack": "^1.0",
