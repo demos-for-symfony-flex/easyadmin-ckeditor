@@ -18,18 +18,12 @@
     "scripts": {
         "auto-scripts": [
         ],
-        "console": [
-            "console"
-        ],
         "initialize": [
-            "doctrine:database:create",
-            "doctrine:migrations:diff --quiet",
-            "doctrine:migrations:migrate --no-interaction --quiet",
-            "ckeditor:install --quiet",
-            "assets:install --symlink --relative"
-        ],
-        "security:check": [
-            "security-checker security:check"
+            "doctrine:database:create": "symfony-cmd",
+            "doctrine:migrations:diff --quiet": "symfony-cmd",
+            "doctrine:migrations:migrate --no-interaction --quiet": "symfony-cmd",
+            "ckeditor:install --quiet": "symfony-cmd",
+            "assets:install --symlink --relative": "symfony-cmd"
         ],
         "post-install-cmd": [
             "@auto-scripts"
@@ -41,16 +35,12 @@
     "conflict": {
         "symfony/symfony": "*"
     },
-    "extra": {
-        "symfony": {
-            "allow-contrib": true
-        }
-    },
     "require": {
         "easycorp/easyadmin-bundle": "^1.17",
         "friendsofsymfony/ckeditor-bundle": "^1.0",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/console": "^3.4 || ^4.0",
+        "symfony/flex": "^1.0",
         "symfony/orm-pack": "^1.0",
         "symfony/yaml": "^3.4 || ^4.0"
     },
