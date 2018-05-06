@@ -22,13 +22,13 @@
     "scripts": {
         "auto-scripts": [
         ],
-        "initialize": [
-            "composer console doctrine:database:create",
-            "composer console doctrine:migrations:diff --quiet",
-            "composer console doctrine:migrations:migrate --no-interaction --quiet",
-            "composer console ckeditor:install --quiet",
-            "composer console assets:install --symlink --relative"
-        ],
+        "initialize": {
+            "doctrine:database:create": "symfony-cmd",
+            "doctrine:migrations:diff --quiet": "symfony-cmd",
+            "doctrine:migrations:migrate --no-interaction --quiet": "symfony-cmd",
+            "ckeditor:install --quiet": "symfony-cmd",
+            "assets:install --symlink --relative": "symfony-cmd"
+        },
         "post-install-cmd": [
             "@auto-scripts"
         ],
