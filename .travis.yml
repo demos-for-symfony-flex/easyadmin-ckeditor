@@ -43,6 +43,9 @@ before_install:
 install:
 - |
   mv composer.json composer-orig.json
+  mv composer-skeleton.json composer.json
+  # composer create-project symfony/skeleton
+  # cd skeleton
   composer require symfony/flex
   composer require symfony/yaml
   composer require symfony/dotenv --dev
