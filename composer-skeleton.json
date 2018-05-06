@@ -18,15 +18,12 @@
     "scripts": {
         "auto-scripts": [
         ],
-        "console": [
-            "console"
-        ],
         "initialize": [
-            "console doctrine:database:create",
-            "console doctrine:migrations:diff --quiet",
-            "console doctrine:migrations:migrate --no-interaction --quiet",
-            "console ckeditor:install --quiet",
-            "console assets:install --symlink"
+            "doctrine:database:create": "symfony-cmd",
+            "doctrine:migrations:diff --quiet": "symfony-cmd",
+            "doctrine:migrations:migrate --no-interaction --quiet": "symfony-cmd",
+            "ckeditor:install --quiet": "symfony-cmd",
+            "assets:install --symlink --relative": "symfony-cmd"
         ],
         "security:check": [
             "security-checker security:check"
