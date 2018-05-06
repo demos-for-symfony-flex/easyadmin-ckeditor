@@ -1,0 +1,41 @@
+{
+    "name": "symfony-flex-demo/easyadmin",
+    "type": "project",
+    "license": "MIT",
+    "description": "A minimal EasyAdmin FOSCKEditor Flex project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "bin": ["bin/console"],
+    "config": {
+        "bin-dir": "bin"
+    },
+    "scripts": {
+        "auto-scripts": [
+        ],
+        "console": [
+            "console"
+        ],
+        "initialize": [
+            "console doctrine:database:create",
+            "console doctrine:migrations:diff --quiet",
+            "console doctrine:migrations:migrate --no-interaction --quiet",
+            "console ckeditor:install --quiet",
+            "console assets:install --symlink"
+        ],
+        "security:check": [
+            "security-checker security:check"
+        ],
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    }
+}
