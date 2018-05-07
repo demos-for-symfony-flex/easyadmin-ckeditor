@@ -87,9 +87,9 @@ after_script:
 - ls --color src/Repository
 - php -s src/Repository/AuthorRepository.php | elinks -force-html -dump-color-mode 4 -dump
 - php -s src/Repository/BlogPostRepository.php | elinks -force-html -dump-color-mode 4 -dump
-- composer exec -- console doctrine:query:sql "INSERT INTO author (name) VALUES ('Tom B. Erichsen')"
-- composer exec -- console doctrine:query:dql "SELECT a FROM App\Entity\Author a"
-- composer exec -- console doctrine:query:sql "SELECT * FROM author"
+- composer exec -vvv -- console doctrine:query:sql "INSERT INTO author (name) VALUES ('Tom B. Erichsen')"
+- composer exec -vvv -- console doctrine:query:dql "SELECT a FROM App\Entity\Author a"
+- composer exec -vvv -- console doctrine:query:sql "SELECT * FROM author"
 - ls --recursive --color config
 - $GOPATH/bin/ccat config/packages/doctrine.yaml
 - $GOPATH/bin/ccat config/packages/easy_admin.yaml
