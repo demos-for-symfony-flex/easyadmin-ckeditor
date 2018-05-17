@@ -70,8 +70,7 @@ install:
   # composer exec -- console assets:install  --symlink --relative
 
 script:
-- composer require --no-scripts sensiolabs/security-checker # &> /dev/null
-- composer exec -vvv -- security-checker security:check --end-point=http://security.sensiolabs.org/check_lock --ansi
+- true
 
 after_script:
 - ls --almost-all --color
@@ -87,17 +86,17 @@ after_script:
 - ls --color src/Repository
 - php -s src/Repository/AuthorRepository.php | elinks -force-html -dump-color-mode 4 -dump
 - php -s src/Repository/BlogPostRepository.php | elinks -force-html -dump-color-mode 4 -dump
-- composer exec -vvv -- console doctrine:query:sql "INSERT INTO author (name) VALUES ('Tom B. Erichsen')"
-- composer exec -vvv -- console doctrine:query:dql "SELECT a FROM App\Entity\Author a"
-- composer exec -vvv -- console doctrine:query:sql "SELECT * FROM author"
+- composer exec --verbose -- console doctrine:query:sql "INSERT INTO author (name) VALUES ('Tom B. Erichsen')"
+- composer exec --verbose -- console doctrine:query:dql "SELECT a FROM App\Entity\Author a"
+- composer exec --verbose -- console doctrine:query:sql "SELECT * FROM author"
 - ls --recursive --color config
 - $GOPATH/bin/ccat config/packages/doctrine.yaml
 - $GOPATH/bin/ccat config/packages/easy_admin.yaml
 - $GOPATH/bin/ccat config/packages/ivory_ck_editor.yaml ######################################################3
 - $GOPATH/bin/ccat config/routes/easy_admin.yaml
 
-- composer exec -vvv -- console debug:router
-- composer exec -vvv -- console server:start &
+- composer exec --verbose -- console debug:router
+- composer exec --verbose -- console server:start &
 - printf 'HEAD /admin/dashboard HTTP/1.1\r\n\r\n' | socat - TCP4:localhost:8000,forever >/dev/null # Waiting for server to connect.
 - elinks http://localhost:8000/admin -dump-color-mode 4 -dump
 # - elinks http://localhost:8000/index.php/admin -dump-color-mode 4 -dump
@@ -112,33 +111,33 @@ after_script:
 
 - composer exec --list --ansi
 - composer run-script --list --ansi
-- composer exec -vvv -- console --ansi
+- composer exec --verbose -- console --ansi
 
-- composer exec -vvv -- console list debug --ansi
-- composer exec -vvv -- console help debug:router --ansi
+- composer exec --verbose -- console list debug --ansi
+- composer exec --verbose -- console help debug:router --ansi
 
-- composer exec -vvv -- console list doctrine --ansi
-- composer exec -vvv -- console help doctrine:database:create --ansi
-# - composer exec -- console help doctrine:generate:entities --ansi
-- composer exec -vvv -- console help doctrine:mapping:convert --ansi
-- composer exec -vvv -- console help doctrine:mapping:import --ansi
-- composer exec -vvv -- console help doctrine:mapping:info --ansi
-- composer exec -vvv -- console help doctrine:migrations:diff --ansi
-- composer exec -vvv -- console help doctrine:migrations:migrate --ansi
-- composer exec -vvv -- console help doctrine:query:dql --ansi
-- composer exec -vvv -- console help doctrine:query:sql --ansi
-- composer exec -vvv -- console help doctrine:schema:validate --ansi
+- composer exec --verbose -- console list doctrine --ansi
+- composer exec --verbose -- console help doctrine:database:create --ansi
+# - composer exec --verbose -- console help doctrine:generate:entities --ansi
+- composer exec --verbose -- console help doctrine:mapping:convert --ansi
+- composer exec --verbose -- console help doctrine:mapping:import --ansi
+- composer exec --verbose -- console help doctrine:mapping:info --ansi
+- composer exec --verbose -- console help doctrine:migrations:diff --ansi
+- composer exec --verbose -- console help doctrine:migrations:migrate --ansi
+- composer exec --verbose -- console help doctrine:query:dql --ansi
+- composer exec --verbose -- console help doctrine:query:sql --ansi
+- composer exec --verbose -- console help doctrine:schema:validate --ansi
 
-- composer exec -vvv -- console list make --ansi
-- composer exec -vvv -- console help make:crud --ansi
-- composer exec -vvv -- console help make:entity --ansi
-- composer exec -vvv -- console help make:migration --ansi
+- composer exec --verbose -- console list make --ansi
+- composer exec --verbose -- console help make:crud --ansi
+- composer exec --verbose -- console help make:entity --ansi
+- composer exec --verbose -- console help make:migration --ansi
 
-- composer exec -vvv -- console list ckeditor --ansi
-- composer exec -vvv -- console help ckeditor:install --ansi
+- composer exec --verbose -- console list ckeditor --ansi
+- composer exec --verbose -- console help ckeditor:install --ansi
 
-- composer exec -vvv -- console list router --ansi
-- composer exec -vvv -- console help router:match --ansi
+- composer exec --verbose -- console list router --ansi
+- composer exec --verbose -- console help router:match --ansi
 
-- composer exec -vvv -- console list server --ansi
-- composer exec -vvv -- console help server:start --ansi
+- composer exec --verbose -- console list server --ansi
+- composer exec --verbose -- console help server:start --ansi
