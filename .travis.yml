@@ -97,8 +97,9 @@ after_script:
 
 - composer exec --verbose -- console debug:router
 # - composer exec --verbose -- console server:start
-- composer exec -- console server:start
-- printf 'HEAD /admin/dashboard HTTP/1.1\r\n\r\n' | socat - TCP4:localhost:8000,forever >/dev/null # Waiting for server to connect.
+# - composer exec -- console server:start
+- bin/console server:start
+- printf 'HEAD /admin/ HTTP/1.1\r\n\r\n' | socat - TCP4:localhost:8000,forever >/dev/null # Waiting for server to connect.
 - elinks http://localhost:8000/admin -dump-color-mode 4 -dump
 # - elinks http://localhost:8000/index.php/admin -dump-color-mode 4 -dump
 
