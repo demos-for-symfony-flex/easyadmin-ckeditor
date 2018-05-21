@@ -1,4 +1,4 @@
-# easyadmin-ckeditor
+# [symfony-flex-demo](https://symfony-flex-demo.github.io)/easyadmin-ckeditor
 
 [![Build Status](https://travis-ci.org/symfony-flex-demo/easyadmin-ckeditor.svg?branch=master)](https://travis-ci.org/symfony-flex-demo/easyadmin-ckeditor)
 
