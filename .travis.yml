@@ -55,6 +55,7 @@ install:
   composer require symfony/dotenv --dev
   composer require symfony/console
   composer require symfony/framework-bundle
+  composer config extra.symfony.allow-contrib true
   composer require friendsofsymfony/ckeditor-bundle
   composer require symfony/orm-pack
   pushd config/packages
