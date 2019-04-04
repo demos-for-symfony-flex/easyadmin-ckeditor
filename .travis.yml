@@ -42,29 +42,29 @@ before_install:
   fi
 
 install:
-- |
-  mv composer.json composer-orig.json
-  mv composer-skeleton.json composer.json
-  pushd config/packages
-  mv easy_admin.yaml .easy_admin.yaml
-  popd
+# - |
+- mv composer.json composer-orig.json
+- mv composer-skeleton.json composer.json
+- pushd config/packages
+- mv easy_admin.yaml .easy_admin.yaml
+- popd
   # composer create-project symfony/skeleton
   # cd skeleton
-  composer require symfony/flex
-  composer require symfony/yaml
-  composer require symfony/dotenv --dev
-  composer require symfony/console
-  composer require symfony/framework-bundle
-  composer config extra.symfony.allow-contrib true
-  composer require friendsofsymfony/ckeditor-bundle
-  composer require symfony/orm-pack
-  pushd config/packages
-  mv .easy_admin.yaml easy_admin.yaml
-  popd
-  composer require easycorp/easyadmin-bundle
-  composer require symfony/profiler-pack --dev
-  composer require symfony/web-server-bundle --dev
-  composer initialize # -- --ansi
+- composer require symfony/flex
+- composer require symfony/yaml
+- composer require symfony/dotenv --dev
+- composer require symfony/console
+- composer require symfony/framework-bundle
+- composer config extra.symfony.allow-contrib true
+- composer require friendsofsymfony/ckeditor-bundle
+- composer require symfony/orm-pack
+- pushd config/packages
+- mv .easy_admin.yaml easy_admin.yaml
+- popd
+- composer require easycorp/easyadmin-bundle
+- composer require symfony/profiler-pack --dev
+- composer require symfony/web-server-bundle --dev
+- composer initialize # -- --ansi
   # composer exec -- console doctrine:database:create
   # composer exec -- console doctrine:migrations:diff --quiet
   # composer exec -- console doctrine:migrations:migrate --no-interaction --quiet
