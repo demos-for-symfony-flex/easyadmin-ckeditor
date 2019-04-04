@@ -21,6 +21,7 @@ php:
 env:
   global:
   - COMPOSER_BIN_DIR=bin
+  - COMPOSER_MEMORY_LIMIT=-1
   # - COMPOSER=composer-dev.json # https://travis-ci.org/symfony-flex-demo/env-COMPOSER-and-symfony.lock
   # - PATH=$TRAVIS_BUILD_DIR/bin::$PATH
 
